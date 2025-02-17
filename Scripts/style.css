@@ -79,15 +79,36 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                url('images/church.jpg') no-repeat center center/cover;
+    background-image: url('../Media/church-background.jpg');  /* Adjust filename to match your actual image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    color: var(--text-light);
-    padding-top: 80px;
+    color: white;
+    position: relative;
+}
+
+/* Add an overlay to make text more readable */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);  /* Darkens the background image */
+    z-index: 1;
+}
+
+/* Make sure content appears above the overlay */
+.hero * {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content {
